@@ -5,14 +5,14 @@
 -->
 <data-extraction-rules>
     <cloud-backup>
-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
-        <include .../>
+        <!-- TODO: Use <ffmpeg.include> and <exclude> to control what is backed up.
+        <ffmpeg.include .../>
         <exclude .../>
         -->
     </cloud-backup>
     <!--
     <device-transfer>
-        <include .../>
+        <ffmpeg.include .../>
         <exclude .../>
     </device-transfer>
     -->
