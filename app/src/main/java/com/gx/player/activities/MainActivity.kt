@@ -1,8 +1,8 @@
-package com.gx.player
+package com.gx.player.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import com.gx.player.PlayerNativeInterface
 import com.gx.player.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
