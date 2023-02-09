@@ -9,7 +9,6 @@ import com.gx.player.databinding.ActivityPlayerBinding
 class PlayerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPlayerBinding
-    private var filePath = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlayerBinding.inflate(layoutInflater)
@@ -18,6 +17,7 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun initVideoView() {
+        var filePath = intent.getStringExtra("filePath")!!
         binding.videoPlay.setFile(filePath)
     }
 }

@@ -78,6 +78,17 @@ set_target_properties(h264
         PROPERTIES IMPORTED_LOCATION
         ${ffmpeg_lib_dir}/libh264.so)
 
+# 从系统库中查找依赖库
+find_library( # Sets the name of the path variable.
+        # 设置依赖库的名字，下面链接库的时候会用到
+        log-lib
+
+        # Specifies the name of the NDK library that
+        # you want CMake to locate.
+
+        # 查找log依赖库
+        # {sdk-path}/ndk-bundle/sysroot/usr/include/android/log.h
+        log )
 
 add_library( # Sets the name of the library.
         player
@@ -86,7 +97,14 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        native-lib.cpp)
+        native-lib.cpp
+        ${CMAKE_SOURCE_DIR}/utils/logger.h
+        ${CMAKE_SOURCE_DIR}/utils/timer.c
+
+        # 播放器
+        ${CMAKE_SOURCE_DIR}/player/player/Player.cpp
+
+        )
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -94,12 +112,7 @@ add_library( # Sets the name of the library.
 # you want to add. CMake verifies that the library exists before
 # completing its build.
 
-find_library( # Sets the name of the path variable.
-        log-lib
 
-        # Specifies the name of the NDK library that
-        # you want CMake to locate.
-        log)
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
@@ -117,7 +130,7 @@ target_link_libraries( # Specifies the target library.
         avformat
         avdevice
         h264
-
+        -landroid
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})

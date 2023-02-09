@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <string>
+#include "player/player/Player.h"
 
 using namespace std;
 extern "C"{
@@ -33,4 +34,24 @@ Java_com_gx_player_PlayerNativeInterface_ffmpegVersion(
     sprintf(versionInfo,"avCodec Version %d.%d.%d %s",d,e,f,versionInfo);
 
     return env->NewStringUTF(versionInfo);
+}
+
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_gx_player_PlayerNativeInterface_createPlayer(JNIEnv *env, jobject thiz, jobject surface,
+                                                      jstring path) {
+    Player *player = new Player(env, thiz, path, surface);
+    return (jint) player;
+}
+
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_gx_player_PlayerNativeInterface_playStart(JNIEnv *env, jobject thiz, jint player) {
+
+}
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_gx_player_PlayerNativeInterface_playPause(JNIEnv *env, jobject thiz, jint player) {
+
 }

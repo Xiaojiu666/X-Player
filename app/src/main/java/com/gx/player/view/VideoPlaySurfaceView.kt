@@ -3,13 +3,16 @@ package com.gx.player.view
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import com.gx.player.PlayerNativeInterface
 
 
 class VideoPlaySurfaceView : SurfaceView, SurfaceHolder.Callback {
 
     private var filePath = ""
+    val TAG = "Player"
 
     constructor(context: Context) : this(context, null, 0)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -21,13 +24,16 @@ class VideoPlaySurfaceView : SurfaceView, SurfaceHolder.Callback {
     override fun surfaceCreated(holder: SurfaceHolder) {
         val surface = holder.surface
         if (surface == null || !surface.isValid) {
-//            Log.d(TAG,"surface is exception")
+            Log.d(TAG,"surface is exception")
             return
         }
         if (TextUtils.isEmpty(filePath)) {
-//            Log.d(TAG,"filePath is exception")
+            Log.d(TAG,"filePath is exception")
             return
         }
+        val createPlayer = PlayerNativeInterface.createPlayer(surface, filePath)
+        Log.d(TAG,"createPlayer ${createPlayer}")
+
 //        val ffmpegPlayer = FFmpegPlayer(surface,filePath)
 //        VideoControlManager.initPlayer(ffmpegPlayer)
     }
