@@ -22,18 +22,22 @@
             android:exported="true">
 
         </activity>
-        <activity android:name=".activities.FileInputActivity"
+        <activity
+            android:name=".activities.FileInputActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            >
+            android:windowSoftInputMode="stateVisible|adjustResize">
+
+        </activity>
+
+        <activity
+            android:name=".activities.PlayerActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activities.PlayerActivity" />
     </application>
 
 </manifest>

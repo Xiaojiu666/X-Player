@@ -24,18 +24,15 @@ class VideoPlaySurfaceView : SurfaceView, SurfaceHolder.Callback {
     override fun surfaceCreated(holder: SurfaceHolder) {
         val surface = holder.surface
         if (surface == null || !surface.isValid) {
-            Log.d(TAG,"surface is exception")
+            Log.e(TAG,"surface is exception")
             return
         }
         if (TextUtils.isEmpty(filePath)) {
-            Log.d(TAG,"filePath is exception")
+            Log.e(TAG,"filePath is exception")
             return
         }
         val createPlayer = PlayerNativeInterface.createPlayer(surface, filePath)
-        Log.d(TAG,"createPlayer ${createPlayer}")
-
-//        val ffmpegPlayer = FFmpegPlayer(surface,filePath)
-//        VideoControlManager.initPlayer(ffmpegPlayer)
+        Log.e(TAG,"createPlayer ${createPlayer}")
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {

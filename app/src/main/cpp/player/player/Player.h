@@ -9,18 +9,27 @@
 #include <jni.h>
 #include <android/log.h>
 
+extern "C"{
+#include <libavcodec/avcodec.h>
+#include <libavutil/avutil.h>
+}
+
 class Player {
 private:
 
-
 public:
-    Player(JNIEnv *jniEnv,jobject obj, jstring path, jobject surface);
+
+    Player(JNIEnv *jniEnv, jobject obj, jstring path, jobject surface);
 
     ~Player();
 
     void play();
 
     void pause();
+
+
+    // 经过转换的路径
+    const char *m_path;
 
 };
 

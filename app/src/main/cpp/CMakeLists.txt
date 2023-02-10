@@ -98,12 +98,36 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         native-lib.cpp
+
+
         ${CMAKE_SOURCE_DIR}/utils/logger.h
         ${CMAKE_SOURCE_DIR}/utils/timer.c
+        ${CMAKE_SOURCE_DIR}/utils/callback/callback.h
+        ${CMAKE_SOURCE_DIR}/utils/callback/callback.cpp
 
         # 播放器
         ${CMAKE_SOURCE_DIR}/player/player/Player.cpp
+        ${CMAKE_SOURCE_DIR}/player/player/Player.h
+        ${CMAKE_SOURCE_DIR}/player/decoder/base_decoder.cpp
+        ${CMAKE_SOURCE_DIR}/player/decoder/video/video_decoder.cpp
+        ${CMAKE_SOURCE_DIR}/player/decoder/video/video_decoder.h
 
+        #jsoncpp 引用 https://blog.csdn.net/lftaoyuan/article/details/107057766
+        jsoncpp/json_tool.h
+        jsoncpp/json_reader.cpp
+        jsoncpp/json_valueiterator.inl
+        jsoncpp/json_value.cpp
+        jsoncpp/json_writer.cpp
+        jsoncpp/assertions.h
+        jsoncpp/allocator.h
+        jsoncpp/config.h
+        jsoncpp/json_features.h
+        jsoncpp/forwards.h
+        jsoncpp/json.h
+        jsoncpp/reader.h
+        jsoncpp/value.h
+        jsoncpp/version.h
+        jsoncpp/writer.h
         )
 
 # Searches for a specified prebuilt library and stores the path as a

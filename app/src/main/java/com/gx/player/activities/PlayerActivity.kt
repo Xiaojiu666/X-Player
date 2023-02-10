@@ -17,7 +17,8 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun initVideoView() {
-        var filePath = intent.getStringExtra("filePath")!!
+//        var filePath = intent.getStringExtra("filePath")!!
+        var filePath = "/storage/emulated/0/The Present.mp4"
         binding.videoPlay.setFile(filePath)
     }
 }

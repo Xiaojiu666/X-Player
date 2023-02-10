@@ -1,6 +1,7 @@
 #include <jni.h>
 #include <string>
 #include "player/player/Player.h"
+#include "utils/logger.h"
 
 using namespace std;
 extern "C"{
@@ -30,6 +31,8 @@ Java_com_gx_player_PlayerNativeInterface_ffmpegVersion(
     int d = avcodec_v / (int) pow(2, 16);
     int e = (int) (avcodec_v - a * pow(2, 16)) / (int) pow(2, 8);
     int f = avcodec_v % (int) pow(2, 8);
+
+    LOGE("ATM","avUtils Version %d.%d.%d ",a,b,c)
     sprintf(versionInfo,"avUtils Version %d.%d.%d ",a,b,c);
     sprintf(versionInfo,"avCodec Version %d.%d.%d %s",d,e,f,versionInfo);
 
