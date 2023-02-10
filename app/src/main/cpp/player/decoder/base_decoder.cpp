@@ -92,12 +92,17 @@ void BaseDecoder::InitFFMpegDecoder() {
         DoneDecode();
         return;
     }
-
     int  m_duration = (int) (m_format_ctx->duration / AV_TIME_BASE);
     int  m_bit_rate = (int) (m_format_ctx->bit_rate / 1000);
-
+    int64_t frames = pStream->nb_frames;
     base_parameter["duration"] = m_duration;
     base_parameter["bitRate"] = m_bit_rate;
+    base_parameter["frames"] = frames;
+    base_parameter["width"] = codecPar->width;
+    base_parameter["height"] = codecPar->height;
+    base_parameter["channels"] = codecPar->channels;
+    base_parameter["sample_rate"] = codecPar->sample_rate;
+    base_parameter["pix_fmt"] = to_string(codecPar->format);
     const char *base_para = base_parameter.toStyledString().c_str();
     LOGE(LogTAG(),"base_parameter = %s ",base_para)
 

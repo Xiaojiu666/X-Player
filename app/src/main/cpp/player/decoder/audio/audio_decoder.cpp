@@ -3,3 +3,19 @@
 //
 
 #include "audio_decoder.h"
+
+AudioDecoder::AudioDecoder(const char *filePath) : BaseDecoder(filePath) {
+
+}
+
+AudioDecoder::~AudioDecoder() {
+
+}
+
+AVMediaType AudioDecoder::GetMediaType() {
+    return AVMEDIA_TYPE_AUDIO;
+}
+
+const char *const AudioDecoder::LogTAG() {
+    return "AudioDecoder";
+}

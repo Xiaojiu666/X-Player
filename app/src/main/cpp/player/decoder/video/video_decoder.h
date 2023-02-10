@@ -6,7 +6,6 @@
 #define X_PLAYER_VIDEO_DECODER_H
 
 #include "../base_decoder.h"
-#include "../../utils/callback/callback.h"
 
 extern "C" {
     #include <libavutil/imgutils.h>

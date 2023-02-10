@@ -111,6 +111,8 @@ add_library( # Sets the name of the library.
         ${CMAKE_SOURCE_DIR}/player/decoder/base_decoder.cpp
         ${CMAKE_SOURCE_DIR}/player/decoder/video/video_decoder.cpp
         ${CMAKE_SOURCE_DIR}/player/decoder/video/video_decoder.h
+        ${CMAKE_SOURCE_DIR}/player/decoder/audio/audio_decoder.cpp
+        ${CMAKE_SOURCE_DIR}/player/decoder/audio/audio_decoder.h
 
         #jsoncpp 引用 https://blog.csdn.net/lftaoyuan/article/details/107057766
         jsoncpp/json_tool.h
